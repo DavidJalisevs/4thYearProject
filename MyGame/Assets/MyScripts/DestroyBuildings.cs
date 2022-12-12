@@ -10,7 +10,7 @@ public class DestroyBuildings : MonoBehaviour
 	public int startingHealth = 100;
 
 	// Declare a variable to track the cube's current health.
-	private int currentHealth;
+	public int currentHealth;
 
 	// Declare a variable to hold the minimum size of the spawned cubes.
 	public float minCubeSize = 0.5f;
