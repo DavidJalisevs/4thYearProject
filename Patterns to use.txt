@@ -1,0 +1,18 @@
+The Singleton pattern, which ensures that only one instance of a particular object or class exists in the game at any given time. 
+This could be useful for creating global objects or resources that need to be shared across multiple parts of the game, 
+such as a database of player stats or a global leaderboard.
+
+The Observer pattern, which allows objects in the game to subscribe to events or changes in other objects, 
+and to be notified when those events or changes occur. This could be useful for creating a system of dynamic events or notifications that 
+can alert the player to important developments in the game world,such as the arrival of new aliens.
+
+The Command pattern, which allows players to execute actions or commands in the game using a consistent and predictable interface. 
+This could be useful for creating a flexible and extensible system for player input and action, and for allowing player to use 
+their superpowers in a variety of different contexts.
+
+The Strategy pattern, which allows players to choose from a variety of different tactics or strategies in the game, 
+and to switch between them as needed. This could be useful for creating a system of customizable player builds or loadouts
+
+The State pattern, which allows objects in the game to change their behavior depending on their internal state. 
+This could be useful for creating complex and dynamic AI behavior, 
+or for allowing player to switch between different superpowers or tactics in combat.
