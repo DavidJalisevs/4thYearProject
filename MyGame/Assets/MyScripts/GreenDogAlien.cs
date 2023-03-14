@@ -16,6 +16,7 @@ public class GreenDogAlien : MonoBehaviour
     private GameObject player;
     public float speed = 5.0f;
     public float followDistance = 100.0f;
+    private RedDogSpawner spawner;
 
 
     void Start()
@@ -26,8 +27,13 @@ public class GreenDogAlien : MonoBehaviour
         theAgent.SetDestination(nextDestination);
         // Get a reference to the player
         player = GameObject.FindWithTag("Player");
-    }
+        spawner = FindObjectOfType<RedDogSpawner>();
 
+    }
+    private void OnDestroy()
+    {
+        spawner.DecreaseDogCount();
+    }
     void Update()
     {
         timer += Time.deltaTime;
