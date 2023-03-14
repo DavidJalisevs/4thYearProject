@@ -10,7 +10,7 @@ public class GreenDogAlien : MonoBehaviour
 
     private Vector3 initialPosition;
     private Vector3 nextDestination;
-    private float maxDistance = 150f;
+    public float maxDistance = 150f;
     private float timer = 0f;
     private float changeDestinationTime = 3f;
     private GameObject player;
