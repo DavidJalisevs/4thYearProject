@@ -21,6 +21,15 @@ public class AlienNPC : MonoBehaviour
 	private Vector3 destination;
 	private NavMeshAgent agent;
 
+
+
+
+	private Vector3 initialPosition;
+	private Vector3 nextDestination;
+	private float maxDistance = 300f;
+	private float timer = 0f;
+	private float changeDestinationTime = 3f;
+
 	void Start()
 	{
 		// Get a reference to the player
@@ -29,40 +38,47 @@ public class AlienNPC : MonoBehaviour
 		// Get the NPC's NavMeshAgent component
 		agent = GetComponent<NavMeshAgent>();
 
-		// Set the NPC's initial destination to a random point within the specified bounds
-		destination = new Vector3(
-			Random.Range(boundsMin.x, boundsMax.x),
-			Random.Range(boundsMin.y, boundsMax.y),
-			Random.Range(boundsMin.z, boundsMax.z)
-		);
+		initialPosition = transform.position;
+		nextDestination = GetRandomDestination();
+		agent.SetDestination(nextDestination);
 	}
 
 	void Update()
 	{
+
+		timer += Time.deltaTime;
+		
+		if (Vector3.Distance(transform.position, initialPosition) >= maxDistance)
+		{
+			agent.SetDestination(initialPosition);
+		}
+
 		// If the player is within the follow distance, start following them
 		if (Vector3.Distance(transform.position, player.transform.position) < followDistance)
 		{
 			// Set the NPC's destination to the player's position
-			destination = player.transform.position;
+			agent.SetDestination(player.transform.position);
 			agent.speed = speed;
 		}
 		else
 		{
-			// If the NPC has reached current destination, set a new random destination within the bounds
-			if (Vector3.Distance(transform.position, destination) < 0.1f)
+			if (timer >= changeDestinationTime)
 			{
-				destination = new Vector3(
-					Random.Range(boundsMin.x, boundsMax.x),
-					Random.Range(boundsMin.y, boundsMax.y),
-					Random.Range(boundsMin.z, boundsMax.z)
-				);
+				nextDestination = GetRandomDestination();
+				agent.SetDestination(nextDestination);
+				timer = 0f;
 			}
 
 			// Set the NPC's speed to the specified wander speed
 			agent.speed = speed * 0.5f;
 		}
+	}
 
-		// Set the NPC's destination
-		agent.destination = destination;
+	Vector3 GetRandomDestination()
+	{
+		float randomX = Random.Range(initialPosition.x - maxDistance, initialPosition.x + maxDistance);
+		float randomZ = Random.Range(initialPosition.z - maxDistance, initialPosition.z + maxDistance);
+		Vector3 randomDestination = new Vector3(randomX, initialPosition.y, randomZ);
+		return randomDestination;
 	}
 }
