@@ -18,7 +18,6 @@ public class AlienNPC : MonoBehaviour
 	// A reference to the player
 	private GameObject player;
 
-	private Vector3 destination;
 	private NavMeshAgent agent;
 
 
