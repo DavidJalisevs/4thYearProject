@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+public enum States
+{
+	Running = 1,
+	Attack = 2,
+	Hurt = 3,
+    Dead = 4
+}
+
+
+
+
+
+
 public class GreenDogAlien : MonoBehaviour
 {
     //public GameObject destinationPoint;
@@ -17,9 +31,11 @@ public class GreenDogAlien : MonoBehaviour
     public float speed = 5.0f;
     public float followDistance = 100.0f;
     private RedDogSpawner spawner;
+    public float currentHealth = 100.0f;
+	public Animator anim;
+	public States state;
 
-
-    void Start()
+	void Start()
     {
         theAgent = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
@@ -36,34 +52,45 @@ public class GreenDogAlien : MonoBehaviour
     }
     void Update()
     {
-        timer += Time.deltaTime;
-        if (Vector3.Distance(transform.position, initialPosition) >= maxDistance)
+		checkStatesForAnimator();
+        if (currentHealth > 0)
         {
-            theAgent.SetDestination(initialPosition);
-        }
-
-
-        // If the player is within the follow distance, start following them
-        if (Vector3.Distance(transform.position, player.transform.position) < followDistance)
-        {
-            // Set the NPC's destination to the player's position
-            theAgent.SetDestination(player.transform.position);
-            //theAgent.speed = speed;
-        }
-        else
-        {
-            if (timer >= changeDestinationTime)
+            timer += Time.deltaTime;
+            if (Vector3.Distance(transform.position, initialPosition) >= maxDistance)
             {
-                nextDestination = GetRandomDestination();
-                theAgent.SetDestination(nextDestination);
-                timer = 0f;
+                theAgent.SetDestination(initialPosition);
             }
 
-            // Set the NPC's speed to the specified wander speed
-        }
-        theAgent.speed = speed * 55.5f;
 
-    }
+            // If the player is within the follow distance, start following them
+            if (Vector3.Distance(transform.position, player.transform.position) < followDistance)
+            {
+                // Set the NPC's destination to the player's position
+                theAgent.SetDestination(player.transform.position);
+                //theAgent.speed = speed;
+            }
+            else
+            {
+                if (timer >= changeDestinationTime)
+                {
+                    nextDestination = GetRandomDestination();
+                    theAgent.SetDestination(nextDestination);
+                    timer = 0f;
+                }
+
+                // Set the NPC's speed to the specified wander speed
+            }
+            theAgent.speed = speed * 55.5f;
+        }
+		if (currentHealth <= 0)
+		{
+			// If the cube's health has reached 0, destroy the cube.
+			//Destroy(gameObject);
+			state = States.Dead;
+            Destroy(gameObject,2);
+		}
+
+	}
 
     Vector3 GetRandomDestination()
     {
@@ -72,4 +99,55 @@ public class GreenDogAlien : MonoBehaviour
         Vector3 randomDestination = new Vector3(randomX, initialPosition.y, randomZ);
         return randomDestination;
     }
+
+
+	void OnCollisionEnter(Collision collision)
+	{
+		// Check if the player has pressed the space bar.
+		//Check for a match with the specific tag on any GameObject that collides with your GameObject
+		if (collision.gameObject.tag == "fireball")
+		{
+			
+			// If the space bar is pressed, decrease the cube's current health by 20.
+			currentHealth -= 20;
+
+			// Check if the cube's health has reached 0.
+			if (currentHealth <= 0)
+			{
+				// If the cube's health has reached 0, destroy the cube.
+				//Destroy(gameObject);
+                state = States.Dead;
+			}
+			
+		}
+	}
+
+
+	void checkStatesForAnimator()
+	{
+		//////
+		///Idle animations Conrolls
+		//////
+		if (state == States.Running)
+		{
+
+		
+		}
+
+
+		if (state == States.Dead)
+		{
+
+
+		}
+
+
+		//////
+		///LEave it hERE DONT TOUCH THIS OR HANDS WILL BE THROWN
+		//////
+		anim.SetInteger("State", (int)state);
+	}
+
+
+
 }

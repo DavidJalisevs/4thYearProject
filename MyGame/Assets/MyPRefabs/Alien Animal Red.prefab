@@ -4947,7 +4947,7 @@ GameObject:
   - component: {fileID: 9067196853022190099}
   m_Layer: 11
   m_Name: Alien Animal Red
-  m_TagString: Untagged
+  m_TagString: redDog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5047,6 +5047,9 @@ MonoBehaviour:
   maxDistance: 500
   speed: 20
   followDistance: 150
+  currentHealth: 100
+  anim: {fileID: 9067196853022190122}
+  state: 1
 --- !u!195 &9067196853022190097
 NavMeshAgent:
   m_ObjectHideFlags: 0

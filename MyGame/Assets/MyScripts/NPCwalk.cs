@@ -42,7 +42,16 @@ public class NPCwalk : MonoBehaviour
 
     }
 
-    Vector3 GetRandomDestination()
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.CompareTag("redDog"))
+		{
+			Destroy(gameObject);
+		}
+	}
+
+
+	Vector3 GetRandomDestination()
     {
         float randomX = Random.Range(initialPosition.x - maxDistance, initialPosition.x + maxDistance);
         float randomZ = Random.Range(initialPosition.z - maxDistance, initialPosition.z + maxDistance);

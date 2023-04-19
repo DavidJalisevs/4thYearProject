@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 4114547016756052596}
   m_Layer: 0
   m_Name: npcwalking
-  m_TagString: Untagged
+  m_TagString: npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

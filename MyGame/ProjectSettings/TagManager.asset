@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - fireball
   - building
+  - npc
+  - redDog
   layers:
   - Default
   - TransparentFX
