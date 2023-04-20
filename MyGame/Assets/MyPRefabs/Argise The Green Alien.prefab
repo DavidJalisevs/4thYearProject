@@ -1656,7 +1656,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270293495044761954}
-  m_LocalRotation: {x: 0.000000014173565, y: -1.0641088e-10, z: 3.637979e-11, w: 1}
+  m_LocalRotation: {x: -0.000000026077032, y: -0.024454921, z: -0.00000011129305,
+    w: 0.999701}
   m_LocalPosition: {x: -0.0000000035669654, y: -2.1391315e-10, z: -0.000000001322478}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1664,7 +1665,7 @@ Transform:
   - {fileID: 2849809994604300408}
   m_Father: {fileID: 4544513719365648047}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -2.803, z: 0}
 --- !u!1 &1308942806890089701
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,14 +5290,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3834878670937914806}
-  m_LocalRotation: {x: 0.81300366, y: 0.52162766, z: -0.25866964, w: 0.004434497}
+  m_LocalRotation: {x: 0.80884576, y: 0.52149385, z: -0.27139166, w: 0.012616811}
   m_LocalPosition: {x: 0.000114995775, y: 0.022971626, z: 0.04377696}
   m_LocalScale: {x: 0.000016124104, y: 0.9999999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 757174395968077244}
   m_RootOrder: 27
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 162.334, y: 26.548004, z: -61.42401}
 --- !u!1 &3857018935864104697
 GameObject:
   m_ObjectHideFlags: 0
@@ -6241,14 +6242,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4593193237949760024}
-  m_LocalRotation: {x: -0.6693742, y: 0.7429254, z: -4.5037135e-18, w: 8.647841e-17}
+  m_LocalRotation: {x: -0.6693558, y: 0.7429051, z: -0.0049641784, w: -0.005509602}
   m_LocalPosition: {x: 0.000114987546, y: -0.02297163, z: 0.043776963}
   m_LocalScale: {x: 0.000017176739, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 757174395968077244}
   m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.845, y: 180.088, z: -84.037}
 --- !u!1 &4595102800525881490
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,6 +8404,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6819606002363560163}
+  - component: {fileID: 647489548}
+  - component: {fileID: 647489549}
   m_Layer: 0
   m_Name: Argise The Green Alien
   m_TagString: Untagged
@@ -8419,7 +8422,7 @@ Transform:
   m_GameObject: {fileID: 6192391395612830297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.332401, y: 2.187, z: -64.276215}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 111, y: 111, z: 111}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4581106910694599416}
@@ -8427,6 +8430,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &647489548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192391395612830297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae42033c6ea80147acc00de3e6798a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsMin: {x: 0, y: 0, z: 0}
+  boundsMax: {x: 200, y: 200, z: 200}
+  speed: 200
+  followDistance: 100
+--- !u!195 &647489549
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192391395612830297}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6208897673834558218
 GameObject:
   m_ObjectHideFlags: 0
@@ -9053,6 +9094,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2398734456757730192}
+  - component: {fileID: 942320762}
+  - component: {fileID: 942320763}
   m_Layer: 0
   m_Name: Argise_Rig
   m_TagString: Untagged
@@ -9068,7 +9111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6703285124445016110}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0007, y: -0.0007, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9076,6 +9119,44 @@ Transform:
   m_Father: {fileID: 6819606002363560163}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942320762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703285124445016110}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae42033c6ea80147acc00de3e6798a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsMin: {x: 0, y: 0, z: 0}
+  boundsMax: {x: 100, y: 100, z: 100}
+  speed: 5
+  followDistance: 100
+--- !u!195 &942320763
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703285124445016110}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6739758800393437751
 GameObject:
   m_ObjectHideFlags: 0
@@ -9216,6 +9297,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4581106910694599416}
   - component: {fileID: 6946708970497180743}
+  - component: {fileID: 115896641}
+  - component: {fileID: 115896642}
   m_Layer: 0
   m_Name: Argise
   m_TagString: Untagged
@@ -9231,7 +9314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6872277203242349900}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0212, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9359,6 +9442,44 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.03339173, y: -0.0022144075, z: 0.014698874}
     m_Extent: {x: 0.038174823, y: 0.01754036, z: 0.04392244}
   m_DirtyAABB: 0
+--- !u!195 &115896641
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872277203242349900}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.15071785
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.20710637
+  m_BaseOffset: 0.10355318
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &115896642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872277203242349900}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae42033c6ea80147acc00de3e6798a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsMin: {x: 0, y: 0, z: 0}
+  boundsMax: {x: 100, y: 100, z: 100}
+  speed: 5
+  followDistance: 100
 --- !u!1 &6887847183667217779
 GameObject:
   m_ObjectHideFlags: 0

@@ -107,9 +107,11 @@ public class GreenDogAlien : MonoBehaviour
 		//Check for a match with the specific tag on any GameObject that collides with your GameObject
 		if (collision.gameObject.tag == "fireball")
 		{
-			
+            Debug.Log("collision with fireball and dog");
 			// If the space bar is pressed, decrease the cube's current health by 20.
 			currentHealth -= 20;
+            Destroy(collision.gameObject);
+           
 
 			// Check if the cube's health has reached 0.
 			if (currentHealth <= 0)
@@ -123,7 +125,7 @@ public class GreenDogAlien : MonoBehaviour
 	}
 
 
-	void checkStatesForAnimator()
+    void checkStatesForAnimator()
 	{
 		//////
 		///Idle animations Conrolls

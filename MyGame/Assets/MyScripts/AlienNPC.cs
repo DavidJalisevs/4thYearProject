@@ -80,4 +80,21 @@ public class AlienNPC : MonoBehaviour
 		Vector3 randomDestination = new Vector3(randomX, initialPosition.y, randomZ);
 		return randomDestination;
 	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		// Check if the player has pressed the space bar.
+		//Check for a match with the specific tag on any GameObject that collides with your GameObject
+		if (collision.gameObject.tag == "fireball")
+		{
+			Debug.Log("collision with fireball and dog");
+			// If the space bar is pressed, decrease the cube's current health by 20.
+			Destroy(collision.gameObject);
+			Destroy(gameObject);
+
+
+		}
+	}
+
+
 }
