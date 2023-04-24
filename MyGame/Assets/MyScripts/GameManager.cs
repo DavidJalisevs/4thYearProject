@@ -23,11 +23,12 @@ public class GameManager : MonoBehaviour
 	public TMP_Text scoreText;
 	public int npcCount;
 	private bool increasedText = false;
-	public int score= 0;
+	public int score = 0;
 	private bool dataSent = false;
 
 	private flyingSpawner flyingSpawnerScript;
 	private fireBallScript fireBallscr;
+	private HealthManager healthManagerScript;
 
 	// Start is called before the first frame update
 	void Start()
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
 		InvokeRepeating("IncrementScore", 2f, 2f);
 		sessionIDDevice = SystemInfo.deviceUniqueIdentifier;
 		fireBallscr = FindObjectOfType<fireBallScript>();
+		healthManagerScript = FindObjectOfType<HealthManager>();
+
 	}
 
 	// Update is called once per frame
@@ -51,24 +54,25 @@ public class GameManager : MonoBehaviour
 		flyingEnemyCount.text = "Flying Enemy Alive: " + flyingSpawnerScript.enemiesRemaining;
 
 
-		if (npcCount <= 0)
+		//if (npcCount <= 0 || healthManagerScript.healthAmount <= 0)
+		//{
+			
+
+		//}
+
+		if (healthManagerScript.healthAmount <= 0 || npcCount <= 0 && !increasedText)
 		{
 			npcCountText.text = "Game Over";
 			npcCountText.color = Color.red;
 			npcCountText.rectTransform.anchoredPosition = new Vector2(0.5f, 0.5f) * new Vector2(-Screen.width, -Screen.height);
-			
-		}
-		if (npcCount <= 0 && !increasedText)
-		{
-			npcCountText.fontSize = npcCountText.fontSize * 3;
 			increasedText = true;
+			//npcCountText.fontSize = npcCountText.fontSize * 3;
 			Time.timeScale = 0;
 
 		}
 
 
-
-		if (npcCount > 0 && !dataSent)
+		if (healthManagerScript.healthAmount <= 0 || npcCount <= 0 && !dataSent)
 		{
 			SendData();
 			dataSent = true;
