@@ -54,8 +54,6 @@ public class DestroyBuildings : MonoBehaviour
 		{
 			currentHealth -= 51;
 
-
-
 			// Check if the cube's health has reached 0.
 			if (currentHealth <= 0)
 			{

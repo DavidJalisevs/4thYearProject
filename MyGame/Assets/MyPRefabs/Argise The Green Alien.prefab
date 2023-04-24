@@ -8407,9 +8407,10 @@ GameObject:
   - component: {fileID: 647489548}
   - component: {fileID: 8932625793102856940}
   - component: {fileID: 647489549}
+  - component: {fileID: 7397169690704985948}
   m_Layer: 0
   m_Name: Argise The Green Alien
-  m_TagString: Untagged
+  m_TagString: Green Alien
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8485,6 +8486,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &7397169690704985948
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192391395612830297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.08, z: 0.02}
+  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!1 &6208897673834558218
 GameObject:
   m_ObjectHideFlags: 0

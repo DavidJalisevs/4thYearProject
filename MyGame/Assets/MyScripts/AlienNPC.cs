@@ -28,6 +28,9 @@ public class AlienNPC : MonoBehaviour
 	private float maxDistance = 300f;
 	private float timer = 0f;
 	private float changeDestinationTime = 3f;
+	private GameManager gameManagerScript;
+	private HealthManager healthManagerScript;
+
 
 	void Start()
 	{
@@ -40,6 +43,9 @@ public class AlienNPC : MonoBehaviour
 		initialPosition = transform.position;
 		nextDestination = GetRandomDestination();
 		agent.SetDestination(nextDestination);
+		gameManagerScript = FindObjectOfType<GameManager>();
+		healthManagerScript = FindObjectOfType<HealthManager>();
+
 	}
 
 	void Update()
@@ -91,9 +97,19 @@ public class AlienNPC : MonoBehaviour
 			// If the space bar is pressed, decrease the cube's current health by 20.
 			Destroy(collision.gameObject);
 			Destroy(gameObject);
+			gameManagerScript.score = gameManagerScript.score + 35;
 
 
 		}
+
+		if (collision.gameObject.tag == "Player")
+		{
+			Debug.Log("Building and dog");
+			// If the space bar is pressed, decrease the cube's current health by 20.
+			healthManagerScript.takeDamage(20);
+
+		}
+
 	}
 
 

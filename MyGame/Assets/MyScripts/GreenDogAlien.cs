@@ -31,7 +31,7 @@ public class GreenDogAlien : MonoBehaviour
 	public Animator anim;
 	public States state;
 	private GameManager gameManagerScript;
-
+	private HealthManager healthManagerScript;
 	void Start()
     {
         theAgent = GetComponent<NavMeshAgent>();
@@ -42,7 +42,7 @@ public class GreenDogAlien : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         spawner = FindObjectOfType<RedDogSpawner>();
 		gameManagerScript = FindObjectOfType<GameManager>();
-
+		healthManagerScript= FindObjectOfType<HealthManager>();
 	}
 	private void OnDestroy()
     {
@@ -130,6 +130,17 @@ public class GreenDogAlien : MonoBehaviour
 			state = States.Attack;
 
 		}
+
+		if (collision.gameObject.tag == "Player")
+		{
+			Debug.Log("Building and dog");
+			// If the space bar is pressed, decrease the cube's current health by 20.
+			state = States.Attack;
+			healthManagerScript.takeDamage(20);
+
+		}
+
+
 
 
 	}

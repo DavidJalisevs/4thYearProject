@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class bulletscript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	private HealthManager healthManagerScript;
 
-    // Update is called once per frame
-    void Update()
+	// Start is called before the first frame update
+	void Start()
+    {
+		healthManagerScript = FindObjectOfType<HealthManager>();
+
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         
     }
@@ -24,8 +27,17 @@ public class bulletscript : MonoBehaviour
                 Destroy(other.gameObject);
             }
 
-
             Destroy(gameObject);
         }
-    }
+
+
+		if (other.gameObject.tag == "Player")
+		{
+			Debug.Log("Building and dog");
+			// If the space bar is pressed, decrease the cube's current health by 20.
+			healthManagerScript.takeDamage(10);
+
+		}
+
+	}
 }

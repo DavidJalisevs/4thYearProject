@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
 
 
-		if (score == 1 && !dataSent)
+		if (npcCount > 0 && !dataSent)
 		{
 			SendData();
 			dataSent = true;
