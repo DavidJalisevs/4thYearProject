@@ -13,10 +13,6 @@ public enum States
 }
 
 
-
-
-
-
 public class GreenDogAlien : MonoBehaviour
 {
     //public GameObject destinationPoint;
@@ -34,6 +30,7 @@ public class GreenDogAlien : MonoBehaviour
     public float currentHealth = 100.0f;
 	public Animator anim;
 	public States state;
+	private GameManager gameManagerScript;
 
 	void Start()
     {
@@ -44,9 +41,10 @@ public class GreenDogAlien : MonoBehaviour
         // Get a reference to the player
         player = GameObject.FindWithTag("Player");
         spawner = FindObjectOfType<RedDogSpawner>();
+		gameManagerScript = FindObjectOfType<GameManager>();
 
-    }
-    private void OnDestroy()
+	}
+	private void OnDestroy()
     {
         spawner.DecreaseDogCount();
     }
@@ -119,8 +117,10 @@ public class GreenDogAlien : MonoBehaviour
 				// If the cube's health has reached 0, destroy the cube.
 				//Destroy(gameObject);
                 state = States.Dead;
+				gameManagerScript.score = gameManagerScript.score + 25;
+
 			}
-			
+
 		}
 	}
 

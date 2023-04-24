@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5292104901887425221}
   - component: {fileID: 5292104901887425220}
   - component: {fileID: 5292104901887425216}
+  - component: {fileID: 2201918223048530563}
   m_Layer: 0
   m_Name: Flying Enemy
   m_TagString: Untagged
@@ -135,6 +136,19 @@ MonoBehaviour:
   spawnpoint: {fileID: 5292104902174495242}
   targetEnemy: {fileID: 0}
   flyinghandler: {fileID: 5292104901887425220}
+--- !u!65 &2201918223048530563
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5292104901887425243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.03, y: 2, z: 1}
+  m_Center: {x: 0.05, y: 0.79, z: 0}
 --- !u!1 &5292104902168114341
 GameObject:
   m_ObjectHideFlags: 0

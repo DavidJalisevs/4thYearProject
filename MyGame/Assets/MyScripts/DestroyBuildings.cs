@@ -6,42 +6,33 @@ using UnityEngine;
 public class DestroyBuildings : MonoBehaviour
 {
 
-	// Declare a variable to hold the cube's starting health.
 	public int startingHealth = 100;
 
-	// Declare a variable to track the cube's current health.
 	public int currentHealth;
 
-	// Declare a variable to hold the minimum size of the spawned cubes.
 	public float minCubeSize = 0.5f;
 
-	// Declare a variable to hold the maximum size of the spawned cubes.
 	public float maxCubeSize = 2.0f;
 
-	// Declare a variable to hold the number of cubes to spawn when the original cube is destroyed.
 	public int numCubesToSpawn = 50;
 	// Declare a variable to hold the size of the cube's bounds.
 	public Vector3 cubeBounds = new Vector3(51.0f, 51.0f, 51.0f);
 
 	void Start()
 	{
-		// Initialize the cube's current health to the starting health.
 		currentHealth = startingHealth;
 	}
 
 	void Update()
 	{
-		
+
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
-		// Check if the player has pressed the space bar.
-		//Check for a match with the specific tag on any GameObject that collides with your GameObject
-		if (collision.gameObject.tag == "fireball")
+		if (collision.gameObject.tag == "fireball" || collision.gameObject.tag == "flyingBullet")
 		{
 			{
-				// If the space bar is pressed, decrease the cube's current health by 20.
 				currentHealth -= 20;
 
 				// Check if the cube's health has reached 0.
@@ -57,6 +48,7 @@ public class DestroyBuildings : MonoBehaviour
 		}
 	}
 
+
 	//void createBlocks()
 	//{
 	//	for (int i = 0; i < numCubesToSpawn; i++)
@@ -69,10 +61,8 @@ public class DestroyBuildings : MonoBehaviour
 	//			Random.Range(-cubeBounds.z / 2.0f, cubeBounds.z / 2.0f)
 	//		);
 
-	//		// Add a Rigidbody component to the cube so it can be affected by physics.
 	//		cube.AddComponent<Rigidbody>();
 
-	//		// Randomize the scale of the cube.
 	//		float scale = Random.Range(minCubeSize, maxCubeSize);
 	//		cube.transform.localScale = new Vector3(scale, scale, scale);
 

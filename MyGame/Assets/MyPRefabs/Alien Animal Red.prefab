@@ -1510,7 +1510,7 @@ SkinnedMeshRenderer:
   m_DirtyAABB: 0
 --- !u!95 &2053624044391972138
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1527,7 +1527,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!64 &2053624044391972140
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4971,7 +4971,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &9067196853022190122
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4988,7 +4988,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!54 &9067196853022190125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5045,7 +5045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 500
-  speed: 20
+  speed: 10
   followDistance: 150
   currentHealth: 100
   anim: {fileID: 9067196853022190122}

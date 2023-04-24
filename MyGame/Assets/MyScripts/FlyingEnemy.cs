@@ -32,11 +32,16 @@ public class FlyingEnemy : MonoBehaviour
 
     public projectilethrower gun;
     public Animator anim_enemy; // animator for enemy model 
+
+    private flyingSpawner flyingSpawnerScript;
+    private GameManager gameManagerScript;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform; // find player object in scene
         targetPosition = GetRandomPosition(); // set initial target position to random position
-    }
+		flyingSpawnerScript = FindObjectOfType<flyingSpawner>();
+		gameManagerScript = FindObjectOfType<GameManager>();
+	}
 
     void Update()
     {
@@ -180,4 +185,24 @@ public class FlyingEnemy : MonoBehaviour
             targetPosition = GetRandomPosition();
         }
     }
+
+
+	private void OnTriggerEnter(Collider other)
+	{
+		// Check if the player has pressed the space bar.
+		//Check for a match with the specific tag on any GameObject that collides with your GameObject
+		if (other.gameObject.tag == "fireball")
+		{
+			Debug.Log("collision with Flying enemy");
+			// If the space bar is pressed, decrease the cube's current health by 20.
+			Destroy(other.gameObject);
+			Destroy(gameObject);
+			flyingSpawnerScript.EnemyDied();
+            gameManagerScript.score = gameManagerScript.score + 15;
+
+		}
+	}
+
+
+
 }

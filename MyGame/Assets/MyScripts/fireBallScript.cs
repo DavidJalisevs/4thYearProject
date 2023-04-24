@@ -12,7 +12,7 @@ public class fireBallScript : MonoBehaviour
 	public bool allowButtonHold;
 	public bool shooting;
 	// Speed of the fireball
-	public float fireballSpeed = 20f;
+	public float fireballSpeed = 35f;
 	// Start is called before the first frame update
 	void Start()
     {
