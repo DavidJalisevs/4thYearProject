@@ -5045,7 +5045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 500
-  speed: 10
+  speed: 5
   followDistance: 150
   currentHealth: 100
   anim: {fileID: 9067196853022190122}

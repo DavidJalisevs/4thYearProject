@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input:
-    actionPath: /actions/default/in/Touchpad
+    actionPath: /actions/default/in/TouchPad
     needsReinit: 0
   speed: 10
 --- !u!1 &7499057181419805184
@@ -1776,7 +1776,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: -180, z: -180}
 --- !u!95 &7584078559578642598
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1793,7 +1793,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7499057184688551434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,7 +2035,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: -180}
 --- !u!95 &7584078573761307664
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2052,7 +2052,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7499057185017403324
 GameObject:
   m_ObjectHideFlags: 0

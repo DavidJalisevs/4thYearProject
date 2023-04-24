@@ -8405,6 +8405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6819606002363560163}
   - component: {fileID: 647489548}
+  - component: {fileID: 8932625793102856940}
   - component: {fileID: 647489549}
   m_Layer: 0
   m_Name: Argise The Green Alien
@@ -8431,6 +8432,22 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &647489548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192391395612830297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae42033c6ea80147acc00de3e6798a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsMin: {x: 0, y: 0, z: 0}
+  boundsMax: {x: 200, y: 200, z: 200}
+  speed: 200
+  followDistance: 100
+--- !u!114 &8932625793102856940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9095,6 +9112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2398734456757730192}
   - component: {fileID: 942320762}
+  - component: {fileID: 7064876520418320716}
   - component: {fileID: 942320763}
   m_Layer: 0
   m_Name: Argise_Rig
@@ -9120,6 +9138,22 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &942320762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703285124445016110}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae42033c6ea80147acc00de3e6798a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsMin: {x: 0, y: 0, z: 0}
+  boundsMax: {x: 100, y: 100, z: 100}
+  speed: 5
+  followDistance: 100
+--- !u!114 &7064876520418320716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9297,8 +9331,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4581106910694599416}
   - component: {fileID: 6946708970497180743}
-  - component: {fileID: 115896641}
   - component: {fileID: 115896642}
+  - component: {fileID: 115896641}
+  - component: {fileID: 7222400029653289360}
   m_Layer: 0
   m_Name: Argise
   m_TagString: Untagged
@@ -9442,6 +9477,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.03339173, y: -0.0022144075, z: 0.014698874}
     m_Extent: {x: 0.038174823, y: 0.01754036, z: 0.04392244}
   m_DirtyAABB: 0
+--- !u!114 &115896642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872277203242349900}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae42033c6ea80147acc00de3e6798a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsMin: {x: 0, y: 0, z: 0}
+  boundsMax: {x: 100, y: 100, z: 100}
+  speed: 5
+  followDistance: 100
 --- !u!195 &115896641
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9464,7 +9515,7 @@ NavMeshAgent:
   m_BaseOffset: 0.10355318
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &115896642
+--- !u!114 &7222400029653289360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

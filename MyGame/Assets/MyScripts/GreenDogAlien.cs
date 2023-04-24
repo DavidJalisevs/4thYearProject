@@ -74,6 +74,7 @@ public class GreenDogAlien : MonoBehaviour
                     nextDestination = GetRandomDestination();
                     theAgent.SetDestination(nextDestination);
                     timer = 0f;
+					Debug.Log("LOOOOOOOOOOOOL");
                 }
 
                 // Set the NPC's speed to the specified wander speed
@@ -120,12 +121,25 @@ public class GreenDogAlien : MonoBehaviour
 				gameManagerScript.score = gameManagerScript.score + 25;
 
 			}
+		}
+
+		if (collision.gameObject.tag == "building")
+		{
+			Debug.Log("Building and dog");
+			// If the space bar is pressed, decrease the cube's current health by 20.
+			state = States.Attack;
 
 		}
+
+
+	}
+	IEnumerator SwitchStateAfterDelay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		state = States.Running;
 	}
 
-
-    void checkStatesForAnimator()
+	void checkStatesForAnimator()
 	{
 		//////
 		///Idle animations Conrolls
@@ -140,6 +154,13 @@ public class GreenDogAlien : MonoBehaviour
 		if (state == States.Dead)
 		{
 
+
+		}
+
+		if (state == States.Attack)
+		{
+
+			StartCoroutine(SwitchStateAfterDelay(1.0f));
 
 		}
 
