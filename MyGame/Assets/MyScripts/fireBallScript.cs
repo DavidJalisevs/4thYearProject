@@ -13,6 +13,7 @@ public class fireBallScript : MonoBehaviour
 	public bool shooting;
 	// Speed of the fireball
 	public float fireballSpeed = 35f;
+	public int fireBallCount = 0;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -40,7 +41,7 @@ public class fireBallScript : MonoBehaviour
 	{
 		// Instantiate a new fireball game object
 		var fireball = Instantiate(fireballPrefab);
-
+		fireBallCount = fireBallCount + 1;
 		// Set the fireball's position to the current game object's position
 		fireball.transform.position = transform.position;
 

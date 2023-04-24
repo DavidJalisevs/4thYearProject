@@ -10,6 +10,7 @@ public class flyingSpawner : MonoBehaviour
 	public int[] waveSizes = { 1, 3, 4, 6 };
 
 	private int currentWave = 0;
+    public int wavesCompleted = 0;
 	public int enemiesRemaining = 0;
 	public TMP_Text waveText;
 
@@ -33,8 +34,10 @@ public class flyingSpawner : MonoBehaviour
         }
 
         currentWave++;
+        wavesCompleted = wavesCompleted + 1;
 
-        if (currentWave >= waveSizes.Length)
+
+		if (currentWave >= waveSizes.Length)
         {
             currentWave = 0;
         }
