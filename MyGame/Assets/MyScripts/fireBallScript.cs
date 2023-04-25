@@ -12,8 +12,10 @@ public class fireBallScript : MonoBehaviour
 	public bool allowButtonHold;
 	public bool shooting;
 	// Speed of the fireball
-	public float fireballSpeed = 50f;
+	private float fireballSpeed = 50f;
 	public int fireBallCount = 0;
+	public AudioSource fireballSound; // audio for fire ball
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -49,6 +51,10 @@ public class fireBallScript : MonoBehaviour
 		var fireballRigidbody = fireball.GetComponent<Rigidbody>();
 
 		fireballRigidbody.AddForce(transform.forward * fireballSpeed, ForceMode.Acceleration);
+
+		// Add an AudioSource component to the fireball and play the audio clip
+		fireballSound.Play();
+
 
 		Destroy(fireball, 5f);
 
