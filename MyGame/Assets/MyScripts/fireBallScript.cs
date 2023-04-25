@@ -12,7 +12,7 @@ public class fireBallScript : MonoBehaviour
 	public bool allowButtonHold;
 	public bool shooting;
 	// Speed of the fireball
-	private float fireballSpeed = 50f;
+	private float fireballSpeed = 3000f;
 	public int fireBallCount = 0;
 	public AudioSource fireballSound; // audio for fire ball
 
@@ -43,7 +43,6 @@ public class fireBallScript : MonoBehaviour
 	{
 		// Instantiate a new fireball game object
 		var fireball = Instantiate(fireballPrefab);
-		fireBallCount = fireBallCount + 1;
 		// Set the fireball's position to the current game object's position
 		fireball.transform.position = transform.position;
 
@@ -51,6 +50,7 @@ public class fireBallScript : MonoBehaviour
 		var fireballRigidbody = fireball.GetComponent<Rigidbody>();
 
 		fireballRigidbody.AddForce(transform.forward * fireballSpeed, ForceMode.Acceleration);
+		fireBallCount = fireBallCount + 1;
 
 		// Add an AudioSource component to the fireball and play the audio clip
 		fireballSound.Play();

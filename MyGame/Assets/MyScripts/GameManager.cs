@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
 
 		// Get the device's unique identifier
 		sessionIDDevice = SystemInfo.deviceUniqueIdentifier;
-
+		sessionIDDevice = System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-") + sessionIDDevice;
+		Debug.Log(sessionIDDevice);
 	}
 
 	// Update is called once per frame
@@ -89,7 +90,6 @@ public class GameManager : MonoBehaviour
 		if (healthManagerScript.healthAmount <= 0 || npcCount <= 0 && !dataSent)
 		{
 			SendData();
-			dataSent = true;
 		}
 
 
@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
 		GameState data = new GameState();
 
 		// Add the session ID to the device timestamp.
-		sessionIDDevice = System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-") + sessionIDDevice;
 
 		// Set the data to be sent to the server.
 		data.scoreToSend = score;
@@ -141,6 +140,8 @@ public class GameManager : MonoBehaviour
 
 		// Log the session ID.
 		Debug.Log(sessionIDDevice);
+		dataSent = true;
+
 
 	}
 
