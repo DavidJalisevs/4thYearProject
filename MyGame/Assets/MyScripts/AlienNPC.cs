@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class AlienNPC : MonoBehaviour
 {
 	// The bounds within which the NPC will wander
-	public Vector3 boundsMin;
-	public Vector3 boundsMax;
+	public Vector3 boundsMin; // min bounds npc can walk
+	public Vector3 boundsMax; // max bounds npc can walk
 
 	// The NPC's movement speed
 	public float speed = 5.0f;
@@ -22,15 +22,16 @@ public class AlienNPC : MonoBehaviour
 
 
 
+	// The NPC's initial position
+	private Vector3 initialPosition; 
+	private Vector3 nextDestination;// npc next pos
+	private float maxDistance = 300f; // The maximum distance the NPC can wander from its initial position
+	private float timer = 0f;   // The timer used for changing destinations
+	private float changeDestinationTime = 3f;   // The time interval between destination changes
 
-	private Vector3 initialPosition;
-	private Vector3 nextDestination;
-	private float maxDistance = 300f;
-	private float timer = 0f;
-	private float changeDestinationTime = 3f;
-	private GameManager gameManagerScript;
-	private HealthManager healthManagerScript;
-
+	private GameManager gameManagerScript; // game manager script reference 
+	private HealthManager healthManagerScript; // health manage script rerefence
+	 
 
 	void Start()
 	{
@@ -40,6 +41,7 @@ public class AlienNPC : MonoBehaviour
 		// Get the NPC's NavMeshAgent component
 		agent = GetComponent<NavMeshAgent>();
 
+		// instatiate all the stuff
 		initialPosition = transform.position;
 		nextDestination = GetRandomDestination();
 		agent.SetDestination(nextDestination);
@@ -51,8 +53,9 @@ public class AlienNPC : MonoBehaviour
 	void Update()
 	{
 
-		timer += Time.deltaTime;
+		timer += Time.deltaTime; // timer here 
 		
+
 		if (Vector3.Distance(transform.position, initialPosition) >= maxDistance)
 		{
 			agent.SetDestination(initialPosition);
@@ -79,15 +82,18 @@ public class AlienNPC : MonoBehaviour
 		}
 	}
 
+	// randomc generation position cfucntion
 	Vector3 GetRandomDestination()
 	{
-		float randomX = Random.Range(initialPosition.x - maxDistance, initialPosition.x + maxDistance);
-		float randomZ = Random.Range(initialPosition.z - maxDistance, initialPosition.z + maxDistance);
-		Vector3 randomDestination = new Vector3(randomX, initialPosition.y, randomZ);
+
+		float randomX = Random.Range(initialPosition.x - maxDistance, initialPosition.x + maxDistance); // get ranbdom x value for pos
+		float randomZ = Random.Range(initialPosition.z - maxDistance, initialPosition.z + maxDistance); // get random y z value
+		Vector3 randomDestination = new Vector3(randomX, initialPosition.y, randomZ); // add those values to the random dest and return it
 		return randomDestination;
 	}
 
-	void OnCollisionEnter(Collision collision)
+	// collision check fucntion
+	void OnCollisionEnter(Collision collision) 
 	{
 		// Check if the player has pressed the space bar.
 		//Check for a match with the specific tag on any GameObject that collides with your GameObject

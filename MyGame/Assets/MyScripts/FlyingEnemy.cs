@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlyingEnemy : MonoBehaviour
 {
     public float moveSpeed = 5.0f; // speed of movement
-    public float rotateSpeed = 5.0f; // speed of rotation
+    public float rotateSpeed = 5.0f; 
     public float maxDistance = 10.0f; // maximum distance enemy can move
     public float maxflyDistance = 10.0f; // maximum distance enemy can fly
     public float minflyDistance = 5.0f; // minimum distance enemy can fly

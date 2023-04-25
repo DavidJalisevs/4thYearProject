@@ -6,13 +6,13 @@ using UnityEngine;
 public class DestroyBuildings : MonoBehaviour
 {
 
-	public int startingHealth = 100;
+	public int startingHealth = 100; // starting health of tge building
 
-	public int currentHealth;
+	public int currentHealth; // current health
+	 
+	public float minCubeSize = 0.5f; // rand cube size
 
-	public float minCubeSize = 0.5f;
-
-	public float maxCubeSize = 2.0f;
+	public float maxCubeSize = 2.0f;// rand cube size
 
 	public int numCubesToSpawn = 50;
 	// Declare a variable to hold the size of the cube's bounds.

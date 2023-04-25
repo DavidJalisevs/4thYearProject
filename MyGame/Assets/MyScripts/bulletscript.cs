@@ -18,6 +18,7 @@ public class bulletscript : MonoBehaviour
     {
         
     }
+	// collisions with bullet
     private void OnTriggerEnter(Collider other)
     {
         if(other!=null)

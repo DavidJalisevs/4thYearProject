@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
+// Enumeration to define different states of the GreenDogAlien
 public enum States
 {
 	Running = 1,
@@ -16,25 +16,26 @@ public enum States
 public class GreenDogAlien : MonoBehaviour
 {
     //public GameObject destinationPoint;
-    NavMeshAgent theAgent;
+    NavMeshAgent theAgent; // Navigation Mesh Agent of the Dog
 
-    private Vector3 initialPosition;
-    private Vector3 nextDestination;
-    public float maxDistance = 150f;
-    private float timer = 0f;
-    private float changeDestinationTime = 3f;
-    private GameObject player;
-    public float speed = 5.0f;
-    public float followDistance = 100.0f;
-    private RedDogSpawner spawner;
-    public float currentHealth = 100.0f;
-	public Animator anim;
-	public States state;
-	private GameManager gameManagerScript;
-	private HealthManager healthManagerScript;
+	private Vector3 initialPosition;  // The initial position of the Dog
+	private Vector3 nextDestination;// The next randomly generated destination for the Dog to move to
+	public float maxDistance = 150f; // The maximum distance the Dog can move from its initial position
+	private float timer = 0f; // A timer to change the Dog's destination after a certain time
+	private float changeDestinationTime = 3f; // The time after which the Dog's destination is changed
+	private GameObject player; // The player game object
+	public float speed = 5.0f; // The speed of the dog
+	public float followDistance = 100.0f;// The distance from which the Dog starts following the player
+	private RedDogSpawner spawner; // The Red Dog Spawner game object
+	public float currentHealth = 100.0f;// The current health of the NPC
+	public Animator anim; // The animator component of the NPC
+	public States state; // The current state of the NPC
+	private GameManager gameManagerScript; // The game manager script
+	private HealthManager healthManagerScript; // The health manager script
 	void Start()
     {
-        theAgent = GetComponent<NavMeshAgent>();
+		// Initialize variables
+		theAgent = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
         nextDestination = GetRandomDestination();
         theAgent.SetDestination(nextDestination);
@@ -44,17 +45,22 @@ public class GreenDogAlien : MonoBehaviour
 		gameManagerScript = FindObjectOfType<GameManager>();
 		healthManagerScript= FindObjectOfType<HealthManager>();
 	}
+	// When the Dog is destroyed, decrease the count of spawned Red Dogs
 	private void OnDestroy()
     {
         spawner.DecreaseDogCount();
     }
     void Update()
     {
+		// checks for current animations update
 		checkStatesForAnimator();
-        if (currentHealth > 0)
+
+		// If the Dog is not dead
+		if (currentHealth > 0)
         {
             timer += Time.deltaTime;
-            if (Vector3.Distance(transform.position, initialPosition) >= maxDistance)
+			// If the dog moves beyond the maximum distance, move it back to the initial position
+			if (Vector3.Distance(transform.position, initialPosition) >= maxDistance)
             {
                 theAgent.SetDestination(initialPosition);
             }
@@ -63,7 +69,7 @@ public class GreenDogAlien : MonoBehaviour
             // If the player is within the follow distance, start following them
             if (Vector3.Distance(transform.position, player.transform.position) < followDistance)
             {
-                // Set the NPC's destination to the player's position
+                // Set the dog's destination to the player's position
                 theAgent.SetDestination(player.transform.position);
                 //theAgent.speed = speed;
             }
@@ -90,7 +96,7 @@ public class GreenDogAlien : MonoBehaviour
 		}
 
 	}
-
+	// ramdom position generatior
     Vector3 GetRandomDestination()
     {
         float randomX = Random.Range(initialPosition.x - maxDistance, initialPosition.x + maxDistance);
