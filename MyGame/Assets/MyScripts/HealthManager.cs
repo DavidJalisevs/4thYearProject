@@ -7,7 +7,9 @@ public class HealthManager : MonoBehaviour
     // Start is called before the first frame update
 
     public Image healthBar; // healthbar image object
-    public float healthAmount = 100.0f; // healtbar amount
+	public Image healthBar2; // healthbar image object for vr ui
+
+	public float healthAmount = 100.0f; // healtbar amount
     void Start()
     {
         
@@ -23,6 +25,8 @@ public class HealthManager : MonoBehaviour
 	{
 		healthAmount -= damage;
         healthBar.fillAmount = healthAmount/ 100f;
+		healthBar2.fillAmount = healthAmount / 100f;
+
 	}
 
 	public void heal(float healAmount)// fucntion to increase the amount of health
@@ -30,6 +34,7 @@ public class HealthManager : MonoBehaviour
 		healthAmount += healAmount;
         healthAmount =Mathf.Clamp(healthAmount, 0, 100);
 		healthBar.fillAmount = healthAmount / 100f;
+		healthBar2.fillAmount = healthAmount / 100f;
 
 	}
 

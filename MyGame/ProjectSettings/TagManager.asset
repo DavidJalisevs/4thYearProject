@@ -11,6 +11,8 @@ TagManager:
   - npc
   - redDog
   - Obstacle
+  - flyingBullet
+  - Green Alien
   layers:
   - Default
   - TransparentFX
@@ -47,4 +49,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ui
+    uniqueID: 2976735067
     locked: 0

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 		public float scoreToSend;
 		public int wavesCompletedToSend;
 		public int playerHitToSend;
+		public int buildingCountToSend;
 		public string sessionID = " ";
 	}
 
@@ -22,8 +23,15 @@ public class GameManager : MonoBehaviour
 	public TMP_Text flyingEnemyCount; // tex for enemy count
 	public TMP_Text scoreText; // text for score
 
+
+	public TMP_Text npcCountText2; // npc text for vr
+	public TMP_Text flyingEnemyCount2; // tex for enemy count for vr
+	public TMP_Text scoreText2; // text for score for vr
+
+
 	public int npcCount; // Stores the number of non-playable characters (NPCs) in the game
 	public int score = 0;// Stores the player's current score
+	private int buildingCount = 999; // count of buildings in the scene 
 
 	private bool dataSent = false; // checker for either data sent or not 
 	private bool increasedText = false; // either text is increase or not
@@ -31,6 +39,7 @@ public class GameManager : MonoBehaviour
 	private flyingSpawner flyingSpawnerScript; // Used to spawn flying enemies
 	private fireBallScript fireBallscr; // Used to shoot fireballs
 	private HealthManager healthManagerScript; // Used to manage player health
+
 
 
 	// Start is called before the first frame update
@@ -51,6 +60,8 @@ public class GameManager : MonoBehaviour
 		// Get the device's unique identifier
 		sessionIDDevice = SystemInfo.deviceUniqueIdentifier;
 		sessionIDDevice = System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-") + sessionIDDevice;
+	
+
 		Debug.Log(sessionIDDevice);
 	}
 
@@ -63,8 +74,10 @@ public class GameManager : MonoBehaviour
 		npcCount = npcs.Length;
 
 		npcCountText.text = "Humans Alive: " + npcCount;
+		npcCountText2.text = "Humans Alive: " + npcCount;
 		// Update the flying enemy count text
-		flyingEnemyCount.text = "Flying Enemy Alive: " + flyingSpawnerScript.enemiesRemaining;
+		flyingEnemyCount.text = "Flying Enemy:" + flyingSpawnerScript.enemiesRemaining;
+		flyingEnemyCount2.text = "Flying Enemy:" + flyingSpawnerScript.enemiesRemaining;
 
 
 		//if (npcCount <= 0 || healthManagerScript.healthAmount <= 0)
@@ -84,6 +97,17 @@ public class GameManager : MonoBehaviour
 			Time.timeScale = 0;
 
 		}
+		if (healthManagerScript.healthAmount <= 0 || npcCount <= 0 && !increasedText)
+		{
+			npcCountText2.text = "Game Over";
+			npcCountText2.color = Color.red;
+			npcCountText2.rectTransform.anchoredPosition = new Vector2(0.5f, 0.5f) * new Vector2(-Screen.width, -Screen.height);
+			increasedText = true;
+			//npcCountText.fontSize = npcCountText.fontSize * 3;
+			Time.timeScale = 0;
+
+		}
+
 
 		// Check if the game is over and send data to the servewr
 
@@ -92,6 +116,14 @@ public class GameManager : MonoBehaviour
 			SendData();
 		}
 
+		if (buildingCount > 0)
+		{
+			// Find all game objects with the "buildings" tag
+			GameObject[] buildings = GameObject.FindGameObjectsWithTag("building");
+
+			// Count the number of buildings found
+			buildingCount = buildings.Length;
+		}
 
 	}
 
@@ -112,6 +144,8 @@ public class GameManager : MonoBehaviour
 		{
 			score++;
 			scoreText.text = "Score: " + score;
+			scoreText2.text = "Score: " + score;
+
 		}
 	}
 
@@ -128,7 +162,7 @@ public class GameManager : MonoBehaviour
 		data.scoreToSend = score;
 		data.wavesCompletedToSend = flyingSpawnerScript.wavesCompleted;
 		data.playerHitToSend = fireBallscr.fireBallCount;
-
+		data.buildingCountToSend = buildingCount;
 		// Set the session ID.
 		data.sessionID = sessionIDDevice;
 
