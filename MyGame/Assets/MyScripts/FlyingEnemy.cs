@@ -19,7 +19,7 @@ public class FlyingEnemy : MonoBehaviour
     public float avoidanceForce = 10.0f; // force at which enemy avoids obstacles
     public float flyTime = 5.0f; // duration of flying state
     public float flySpeed = 10.0f; // speed of flight
-    public float flyCooldown = 10.0f; // cooldown between flights
+    public float flyCooldown = 5.0f; // cooldown between flights
 
     private Transform player; // transform of player
     [HideInInspector]public Vector3 targetPosition; // position of target (player or random position)
@@ -135,7 +135,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             return new Vector3(Random.Range(-maxDistance, maxDistance), Random.Range(minflyDistance, maxflyDistance), Random.Range(-maxDistance, maxDistance));
         }
-        else // if not flying, choose random position on ground
+        else 
         {
             return new Vector3(Random.Range(-maxDistance, maxDistance), minYdistanceWalking, Random.Range(-maxDistance, maxDistance));
         }
