@@ -94,7 +94,6 @@ public class GameManager : MonoBehaviour
 			npcCountText.rectTransform.anchoredPosition = new Vector2(0.5f, 0.5f) * new Vector2(-Screen.width, -Screen.height);
 			increasedText = true;
 			//npcCountText.fontSize = npcCountText.fontSize * 3;
-			Time.timeScale = 0;
 
 		}
 		if (healthManagerScript.healthAmount <= 0 || npcCount <= 0 && !increasedText)
@@ -104,17 +103,33 @@ public class GameManager : MonoBehaviour
 			npcCountText2.rectTransform.anchoredPosition = new Vector2(0.5f, 0.5f) * new Vector2(-Screen.width, -Screen.height);
 			increasedText = true;
 			//npcCountText.fontSize = npcCountText.fontSize * 3;
-			Time.timeScale = 0;
 
 		}
 
 
 		// Check if the game is over and send data to the servewr
 
-		if (healthManagerScript.healthAmount <= 0 || npcCount <= 0 && !dataSent)
+		if (healthManagerScript.healthAmount <= 0 && dataSent == false)
 		{
-			SendData();
+			SendData(); // send data to the server
+			// Log the session ID.
+			Debug.Log(dataSent);
+			Debug.Log(sessionIDDevice);
+			Time.timeScale = 0; //Stop the game
 		}
+
+		if ( npcCount <= 0 && dataSent == false)
+		{
+			SendData(); // send data to the server
+			// Log the session ID.
+			Debug.Log(dataSent);
+			Debug.Log(sessionIDDevice);
+			Time.timeScale = 0; //Stop the game
+
+		}
+
+
+
 
 		if (buildingCount > 0)
 		{
@@ -155,6 +170,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Create a new GameState object to hold the game state data.
 		GameState data = new GameState();
+		dataSent = true;
 
 		// Add the session ID to the device timestamp.
 
@@ -171,11 +187,6 @@ public class GameManager : MonoBehaviour
 
 		// Send the data to the server.
 		StartCoroutine(postToServer.PostData(jsonData));
-
-		// Log the session ID.
-		Debug.Log(sessionIDDevice);
-		dataSent = true;
-
 
 	}
 

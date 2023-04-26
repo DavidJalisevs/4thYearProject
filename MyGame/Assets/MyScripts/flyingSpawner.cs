@@ -15,6 +15,7 @@ public class flyingSpawner : MonoBehaviour
 	public int wavesCompleted = 0;// The number of waves completed
 	public int enemiesRemaining = 0;// The number of enemies remaining in the current wave
 	public TMP_Text waveText;// The text object used to display wave announcements
+	public TMP_Text waveText2;// The text object used to display wave announcements for vr
 
 
 	private void Start()
@@ -29,6 +30,8 @@ public class flyingSpawner : MonoBehaviour
 
 		// Display a message indicating that a new wave is starting
 		waveText.text = "NEW WAVE OF ENEMIES FLYING IN";
+		waveText2.text = "NEW WAVE OF ENEMIES FLYING IN";
+
 		StartCoroutine(DisplayWaveAnnouncement(2.0f));
 
 		// Spawn the enemies at random spawn points
@@ -68,5 +71,7 @@ public class flyingSpawner : MonoBehaviour
 	{
 		yield return new WaitForSeconds(displayTime);
 		waveText.text = ""; // Clear the text
+		waveText2.text = ""; // Clear the text
+
 	}
 }
