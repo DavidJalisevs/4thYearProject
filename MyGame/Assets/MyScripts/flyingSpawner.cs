@@ -9,11 +9,10 @@ public class flyingSpawner : MonoBehaviour
 	public float waveDelay = 5f;// The delay between waves
 
 	public int[] waveSizes = { 1, 3, 4, 6 };// The number of enemies in each wave
-
-
 	private int currentWave = 0;// The current wave number
 	public int wavesCompleted = 0;// The number of waves completed
 	public int enemiesRemaining = 0;// The number of enemies remaining in the current wave
+
 	public TMP_Text waveText;// The text object used to display wave announcements
 	public TMP_Text waveText2;// The text object used to display wave announcements for vr
 

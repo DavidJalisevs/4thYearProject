@@ -7,14 +7,12 @@ public class DestroyBuildings : MonoBehaviour
 {
 
 	public int startingHealth = 100; // starting health of tge building
-
 	public int currentHealth; // current health
-	 
-	public float minCubeSize = 0.5f; // rand cube size
+	public int numCubesToSpawn = 50; // cubes to spawn in the place of big building
 
+	public float minCubeSize = 0.5f; // rand cube size
 	public float maxCubeSize = 2.0f;// rand cube size
 
-	public int numCubesToSpawn = 50;
 	// Declare a variable to hold the size of the cube's bounds.
 	public Vector3 cubeBounds = new Vector3(51.0f, 51.0f, 51.0f);
 

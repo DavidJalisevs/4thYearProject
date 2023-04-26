@@ -6,14 +6,19 @@ using Valve.VR.InteractionSystem;
 
 public class fireBallScript : MonoBehaviour
 {
+
+	public int fireBallCount = 0; // counts the fire balls
+
+	public bool allowButtonHold; // allows to hokld buttonb
+	public bool shooting; // bool to shoot
+
+	private float fireballSpeed = 3200f; // speed of fireball
+
 	// Prefab for the fireball
 	public GameObject fireballPrefab;
 	public SteamVR_Action_Boolean fireAction;
-	public bool allowButtonHold;
-	public bool shooting;
+
 	// Speed of the fireball
-	private float fireballSpeed = 3000f;
-	public int fireBallCount = 0;
 	public AudioSource fireballSound; // audio for fire ball
 
 	// Start is called before the first frame update

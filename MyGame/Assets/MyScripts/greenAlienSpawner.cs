@@ -10,9 +10,9 @@ public class greenAlienSpawner : MonoBehaviour
 
 	public float minSpawnDelay = 5f;
 	public float maxSpawnDelay = 10f;
-	public int maxAliens = 10; // The maximum number of dogs that can exist at any one time.
-
 	private float nextSpawnTime = 0f;// The time when the next spawn will occur.
+
+	public int maxAliens = 10; // The maximum number of dogs that can exist at any one time.
 	private int currentAliens = 0;
 
 	private void Start()

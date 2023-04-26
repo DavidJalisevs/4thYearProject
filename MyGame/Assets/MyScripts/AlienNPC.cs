@@ -11,27 +11,22 @@ public class AlienNPC : MonoBehaviour
 
 	// The NPC's movement speed
 	public float speed = 5.0f;
-
-	// The distance at which the NPC will start following the player
-	public float followDistance = 100.0f;
-
-	// A reference to the player
-	private GameObject player;
-
-	private NavMeshAgent agent;
-
-
+	public float followDistance = 100.0f;   // The distance at which the NPC will start following the player
+	private float maxDistance = 300f; // The maximum distance the NPC can wander from its initial position
+	private float timer = 0f;   // The timer used for changing destinations
+	private float changeDestinationTime = 3f;   // The time interval between destination change
+												// A reference to the player
 
 	// The NPC's initial position
 	private Vector3 initialPosition; 
 	private Vector3 nextDestination;// npc next pos
-	private float maxDistance = 300f; // The maximum distance the NPC can wander from its initial position
-	private float timer = 0f;   // The timer used for changing destinations
-	private float changeDestinationTime = 3f;   // The time interval between destination changes
+
 
 	private GameManager gameManagerScript; // game manager script reference 
 	private HealthManager healthManagerScript; // health manage script rerefence
-	 
+	private GameObject player;
+	private NavMeshAgent agent;
+
 
 	void Start()
 	{

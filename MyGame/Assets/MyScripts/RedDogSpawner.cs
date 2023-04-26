@@ -10,10 +10,9 @@ public class RedDogSpawner : MonoBehaviour
 	// The minimum and maximum delay between spawns.
 	public float minSpawnDelay = 5f;
     public float maxSpawnDelay = 10f;
-    public int maxDogs = 10;    // The maximum number of dogs that can exist at any one time.
-
-
 	private float nextSpawnTime = 0f;    // The time when the next spawn will occur.
+
+	public int maxDogs = 10;    // The maximum number of dogs that can exist at any one time.
 	private int currentDogs = 0;
 
     private void Start()

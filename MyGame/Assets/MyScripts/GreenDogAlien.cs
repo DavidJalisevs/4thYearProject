@@ -23,15 +23,18 @@ public class GreenDogAlien : MonoBehaviour
 	public float maxDistance = 150f; // The maximum distance the Dog can move from its initial position
 	private float timer = 0f; // A timer to change the Dog's destination after a certain time
 	private float changeDestinationTime = 3f; // The time after which the Dog's destination is changed
-	private GameObject player; // The player game object
 	public float speed = 5.0f; // The speed of the dog
 	public float followDistance = 100.0f;// The distance from which the Dog starts following the player
-	private RedDogSpawner spawner; // The Red Dog Spawner game object
 	public float currentHealth = 100.0f;// The current health of the NPC
+
+	private GameObject player; // The player game object
+	private RedDogSpawner spawner; // The Red Dog Spawner game object
 	public Animator anim; // The animator component of the NPC
-	public States state; // The current state of the NPC
 	private GameManager gameManagerScript; // The game manager script
 	private HealthManager healthManagerScript; // The health manager script
+
+	public States state; // The current state of the NPC
+
 	void Start()
     {
 		// Initialize variables
