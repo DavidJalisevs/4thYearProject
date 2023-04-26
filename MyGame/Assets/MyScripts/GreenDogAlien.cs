@@ -128,6 +128,8 @@ public class GreenDogAlien : MonoBehaviour
 				//Destroy(gameObject);
                 state = States.Dead;
 				gameManagerScript.score = gameManagerScript.score + 25;
+				gameManagerScript.enemiesKilled = gameManagerScript.enemiesKilled + 1;
+
 
 			}
 		}

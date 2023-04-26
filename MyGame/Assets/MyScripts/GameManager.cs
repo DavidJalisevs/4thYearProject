@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 		public int wavesCompletedToSend;
 		public int playerHitToSend;
 		public int buildingCountToSend;
+		public int enemyKilledTOSend;
 		public string sessionID = " ";
 	}
 
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
 
 	public int npcCount; // Stores the number of non-playable characters (NPCs) in the game
 	public int score = 0;// Stores the player's current score
+	public int enemiesKilled = 0;// Stores the player's current score
 	private int buildingCount = 999; // count of buildings in the scene 
 
 	private bool dataSent = false; // checker for either data sent or not 
@@ -179,6 +181,7 @@ public class GameManager : MonoBehaviour
 		data.wavesCompletedToSend = flyingSpawnerScript.wavesCompleted;
 		data.playerHitToSend = fireBallscr.fireBallCount;
 		data.buildingCountToSend = buildingCount;
+		data.enemyKilledTOSend = enemiesKilled;
 		// Set the session ID.
 		data.sessionID = sessionIDDevice;
 

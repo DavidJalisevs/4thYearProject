@@ -17,7 +17,7 @@ public class projectilethrower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Find the closest enemy with the tag "Enemy"
+        // Find the closest enemy with the tags
         List<GameObject> enemies=new List<GameObject>();
        enemies = GameObject.FindGameObjectsWithTag("npc").ToList();
         enemies.Add(GameObject.FindGameObjectWithTag("Player"));
@@ -32,7 +32,7 @@ public class projectilethrower : MonoBehaviour
             }
         }
 
-        // If there is a target enemy within range, start throwing projectiles
+        // If there is a target enemy within range, start shooting projectiles
         if (targetEnemy != null && closestDistance <= range)
         {
             flyinghandler.targetPosition = targetEnemy.transform.position;

@@ -99,7 +99,7 @@ public class AlienNPC : MonoBehaviour
 			Destroy(collision.gameObject);
 			Destroy(gameObject);
 			gameManagerScript.score = gameManagerScript.score + 35;
-
+			gameManagerScript.enemiesKilled = gameManagerScript.enemiesKilled + 1;
 
 		}
 

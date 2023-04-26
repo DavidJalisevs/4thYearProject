@@ -197,6 +197,8 @@ public class FlyingEnemy : MonoBehaviour
 			Destroy(gameObject);
 			flyingSpawnerScript.EnemyDied();
             gameManagerScript.score = gameManagerScript.score + 15;
+			gameManagerScript.enemiesKilled = gameManagerScript.enemiesKilled + 1;
+
 
 		}
 	}
